@@ -8,8 +8,8 @@ import RegisterScreen from './components/RegisterScreen'
 import { isRegistered, updateLastSeen } from './lib/userService'
 
 export default function App() {
+  const [registered, setRegistered] = useState(() => isRegistered())
 
- 
   useEffect(() => {
     window.resetKalaam = () => {
       localStorage.removeItem('kalaam_user_id')
@@ -18,20 +18,14 @@ export default function App() {
       window.location.reload()
     }
     return () => {
-      if (window.resetKalaam) delete window.resetKalaam
+      delete window.resetKalaam
     }
   }, [])
 
   useEffect(() => {
-    const run = async () => {
-      try {
-        await updateLastSeen()
-      } catch {
-        // silent fail
-      }
-    }
-    run()
-  }, [])
+    if (!registered) return
+    updateLastSeen().catch(() => {})
+  }, [registered])
 
   if (!registered) {
     return <RegisterScreen onComplete={() => setRegistered(true)} />
