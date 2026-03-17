@@ -5,7 +5,9 @@ import { vocabulary } from '../data/vocabulary'
 import { getWordData, addWord, hasWord, normalizeWord, getLibrary } from '../lib/wordLibrary'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import OnboardingOverlay, { isOnboardingDone } from '../components/OnboardingOverlay'
+import { trackBookOpened, trackChapterCompleted, trackWordSaved, updateSupportLevel } from '../lib/userService'
 import './Reader.css'
+import confetti from 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.module.mjs'
 
 const SUPPORT_LEVELS = [
   { id: 1, label: 'Full support', desc: 'Roman Urdu visible' },
@@ -23,6 +25,11 @@ const PHASE_WORD_BANK_REVIEW = 'wordBankReview'
 
 const STORAGE_KEY = (bookId) => `kalaam_support_${bookId}`
 const QUIZ_DONE_KEY = (bookId, chapterId) => `kalaam_quiz_${bookId}_${chapterId}`
+const CHECKPOINT_DONE_KEY = (bookId, chapterId) => `kalaam_checkpoints_${bookId}_${chapterId}`
+const CHECKPOINT_POSITIVE = ['Sahi jawab!', 'Zabardast!', 'Bilkul theek!', 'Excellent!']
+const CHECKPOINT_POSITIVE_UR = ['Wah, bohat khoob!', 'Kamaal kar diya!', 'Bilkul sahi!', 'Shahbash!']
+const CHECKPOINT_NEGATIVE = 'Not quite — the correct answer is highlighted above'
+const CHECKPOINT_NEGATIVE_UR = 'Ghabrao mat — sahi jawab upar highlight hai'
 
 function getSupportLevel(bookId) {
   const stored = localStorage.getItem(STORAGE_KEY(bookId))
@@ -65,8 +72,15 @@ export default function Reader() {
   const [pendingCheckpoint, setPendingCheckpoint] = useState(null)
   const [checkpointAnswers, setCheckpointAnswers] = useState([])
   const [wordsReviewChapter, setWordsReviewChapter] = useState(null)
+  const [checkpointCompleted, setCheckpointCompleted] = useState(false)
+  const [checkpointFeedback, setCheckpointFeedback] = useState(null)
+  const [checkpointRevealContinue, setCheckpointRevealContinue] = useState(false)
+  const [quizFeedback, setQuizFeedback] = useState(null)
   const toastTimeoutRef = useRef(null)
   const tapHintTimeoutRef = useRef(null)
+  const checkpointAdvanceTimeoutRef = useRef(null)
+  const checkpointContinueTimeoutRef = useRef(null)
+  const chapterCompletionTrackedRef = useRef(false)
   const activeLineRef = useRef(null)
   const isMobile = useMediaQuery('(max-width: 767px)')
 
@@ -97,6 +111,8 @@ export default function Reader() {
     return () => {
       if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current)
       if (tapHintTimeoutRef.current) clearTimeout(tapHintTimeoutRef.current)
+      if (checkpointAdvanceTimeoutRef.current) clearTimeout(checkpointAdvanceTimeoutRef.current)
+      if (checkpointContinueTimeoutRef.current) clearTimeout(checkpointContinueTimeoutRef.current)
     }
   }, [])
 
@@ -117,6 +133,21 @@ export default function Reader() {
     return () => clearTimeout(t)
   }, [isMobile, revealLine])
 
+  useEffect(() => {
+    chapterCompletionTrackedRef.current = false
+  }, [bookId, chapterIndex])
+
+  useEffect(() => {
+    const run = async () => {
+      try {
+        await trackBookOpened(bookId)
+      } catch {
+        // silent fail
+      }
+    }
+    run()
+  }, [bookId])
+
   const handleAdvance = useCallback(() => {
     setTapHintVisible(false)
     if (tapHintTimeoutRef.current) {
@@ -126,10 +157,19 @@ export default function Reader() {
     if (phase !== PHASE_READING) return
     if (lines.length === 0) return
     if (lineIndex >= lines.length) return
-    const nextLine = lineIndex + 1
     const checkpoint = chapter?.checkpoints?.find((cp) => cp.afterLine === lineIndex)
+    const completed = JSON.parse(localStorage.getItem(CHECKPOINT_DONE_KEY(bookId, chapter?.id)) || '[]')
     if (checkpoint) {
+      if (completed.includes(checkpoint.id)) {
+        setLineIndex((i) => i + 1)
+        setRevealLine(null)
+        return
+      }
       setPendingCheckpoint(checkpoint)
+      setCheckpointAnswers([])
+      setCheckpointCompleted(false)
+      setCheckpointFeedback(null)
+      setCheckpointRevealContinue(false)
       setPhase(PHASE_CHECKPOINT)
       setRevealLine(null)
       return
@@ -138,6 +178,16 @@ export default function Reader() {
       setLineIndex((i) => i + 1)
       setRevealLine(null)
       return
+    }
+    if (chapter?.id && !chapterCompletionTrackedRef.current) {
+      chapterCompletionTrackedRef.current = true
+      ;(async () => {
+        try {
+          await trackChapterCompleted(bookId, chapter.id)
+        } catch {
+          // silent fail
+        }
+      })()
     }
     setLineIndex(lines.length)
     setPhase(PHASE_CHAPTER_COMPLETE)
@@ -197,7 +247,14 @@ export default function Reader() {
         return
       }
       const added = addWord(data)
-      if (added) showToast({ type: 'added', word: data.word, ur_meaning: data.ur_meaning, en_definition: data.en_definition, duration: 2500 })
+      if (added) {
+        showToast({ type: 'added', word: data.word, ur_meaning: data.ur_meaning, en_definition: data.en_definition, duration: 2500 })
+        try {
+          await trackWordSaved()
+        } catch {
+          // silent fail
+        }
+      }
     },
     [book, chapter, showToast]
   )
@@ -249,34 +306,90 @@ export default function Reader() {
     const cpQuestions = cp.questions || []
     const cpCurrent = checkpointAnswers.length
     const cpDone = cpCurrent >= cpQuestions.length
+    const checkpointKey = CHECKPOINT_DONE_KEY(bookId, chapter?.id)
+    const completed = JSON.parse(localStorage.getItem(checkpointKey) || '[]')
 
     const handleCheckpointAnswer = (optionIndex) => {
       if (cpDone) return
+      const currentQuestion = cpQuestions[cpCurrent]
+      const isCorrect = currentQuestion?.correct === optionIndex
       const next = [...checkpointAnswers, optionIndex]
       setCheckpointAnswers(next)
+      setCheckpointFeedback({
+        correct: isCorrect,
+        selected: optionIndex,
+        correctIndex: currentQuestion?.correct,
+      })
+      setCheckpointRevealContinue(false)
+      if (isCorrect) {
+        confetti({
+          particleCount: 60,
+          spread: 70,
+          origin: { y: 0.7 },
+          colors: ['#ffb08f', '#ff9a6a', '#7d2f2a', '#ffccaa', '#d68a4a'],
+          scalar: 0.9,
+          gravity: 1.2,
+        })
+      }
+      if (checkpointAdvanceTimeoutRef.current) clearTimeout(checkpointAdvanceTimeoutRef.current)
+      checkpointAdvanceTimeoutRef.current = setTimeout(() => {
+        setCheckpointFeedback(null)
+        setCheckpointAnswers(next)
+      }, isCorrect ? 1800 : 2500)
     }
 
     if (cpDone) {
       const correct = cpQuestions.filter((q, i) => q.correct === checkpointAnswers[i]).length
       const total = cpQuestions.length
+      const pct = total ? Math.round((correct / total) * 100) : 0
+      const summary = pct === 100
+        ? { tone: 'green', en: '✦ Perfect checkpoint!', ur: 'Sab sawaal sahi thay — bohat khoob!', confetti: true }
+        : pct >= 50
+          ? { tone: 'amber', en: 'Good try — keep reading carefully', ur: 'Koi baat nahi — dhyan se parhte raho', confetti: false }
+          : { tone: 'muted', en: 'Review the lines above before continuing', ur: 'Aage barhne se pehle upar wali lines dobara parhein', confetti: false }
+      if (!checkpointCompleted) {
+        completed.push(cp.id)
+        localStorage.setItem(checkpointKey, JSON.stringify(completed))
+        setCheckpointCompleted(true)
+        setCheckpointFeedback({ summary })
+        if (summary.confetti) {
+          confetti({
+            particleCount: 60,
+            spread: 70,
+            origin: { y: 0.7 },
+            colors: ['#ffb08f', '#ff9a6a', '#7d2f2a', '#ffccaa', '#d68a4a'],
+            scalar: 0.9,
+            gravity: 1.2,
+          })
+        }
+        if (checkpointContinueTimeoutRef.current) clearTimeout(checkpointContinueTimeoutRef.current)
+        checkpointContinueTimeoutRef.current = setTimeout(() => setCheckpointRevealContinue(true), 1000)
+      }
       return (
         <div className="reader reader--quiz paper-texture">
           <div className="checkpoint-result">
             <h2 className="checkpoint-title">Checkpoint ✦</h2>
             <p className="checkpoint-score">{correct}/{total} correct</p>
-            <p className="checkpoint-encourage">Well done! Aage barho.</p>
-            <p className="checkpoint-encourage-ur">Shabash! Keep going.</p>
-            <button
-              type="button"
-              className="reader-btn reader-btn--primary"
-              onClick={() => {
-                setPendingCheckpoint(null)
-                setCheckpointAnswers([])
-                setPhase(PHASE_READING)
-              }}
-            >
-              Continue Reading →
-            </button>
+            <div className={`checkpoint-summary checkpoint-summary--${summary.tone}`}>
+              <p className="checkpoint-summary-en">{summary.en}</p>
+              <p className="checkpoint-summary-ur">{summary.ur}</p>
+            </div>
+            {checkpointRevealContinue && (
+              <button
+                type="button"
+                className="reader-btn reader-btn--primary"
+                onClick={() => {
+                  setPendingCheckpoint(null)
+                  setCheckpointAnswers([])
+                  setCheckpointCompleted(false)
+                  setCheckpointFeedback(null)
+                  setCheckpointRevealContinue(false)
+                  setPhase(PHASE_READING)
+                }}
+              >
+                Continue Reading →
+              </button>
+            )}
           </div>
         </div>
       )
@@ -285,6 +398,7 @@ export default function Reader() {
     const cq = cpQuestions[cpCurrent]
     const cqOptions = cq.options || []
     const cqOptionsUr = cq.optionsUr || []
+    const locked = !!checkpointFeedback
     return (
       <div className="reader reader--quiz paper-texture">
         <div className="quiz-box checkpoint-box">
@@ -294,13 +408,17 @@ export default function Reader() {
           <span className="quiz-meta">{cq.type}</span>
           <h2 className="quiz-question">{cq.question}</h2>
           {cq.questionUr && <p className="quiz-question-ur">{cq.questionUr}</p>}
-          <div className="quiz-options">
+          <div className={`quiz-options ${locked ? 'quiz-options--locked' : ''}`}>
             {cqOptions.map((opt, i) => (
               <button
                 key={i}
                 type="button"
-                className="reader-btn quiz-option"
-                onClick={() => handleCheckpointAnswer(i)}
+                className={`reader-btn quiz-option ${checkpointFeedback?.selected === i ? (checkpointFeedback.correct ? 'quiz-option--correct' : 'quiz-option--wrong') : ''} ${checkpointFeedback?.correctIndex === i && checkpointFeedback.selected !== i ? 'quiz-option--correct' : ''}`}
+                onClick={() => {
+                  if (locked) return
+                  handleCheckpointAnswer(i)
+                }}
+                style={locked ? { pointerEvents: 'none' } : undefined}
               >
                 <span className="quiz-option-en">{getOptionEn(opt)}</span>
                 {(getOptionUr(opt, cqOptionsUr, i) || opt?.ur) && (
@@ -309,6 +427,21 @@ export default function Reader() {
               </button>
             ))}
           </div>
+          {checkpointFeedback && !checkpointFeedback.summary && (
+            <div className={`checkpoint-feedback ${checkpointFeedback.correct ? 'checkpoint-feedback--correct' : 'checkpoint-feedback--wrong'}`}>
+              {checkpointFeedback.correct ? (
+                <>
+                  <p className="checkpoint-feedback-en">{CHECKPOINT_POSITIVE[Math.floor(Math.random() * CHECKPOINT_POSITIVE.length)]}</p>
+                  <p className="checkpoint-feedback-ur">{CHECKPOINT_POSITIVE_UR[Math.floor(Math.random() * CHECKPOINT_POSITIVE_UR.length)]}</p>
+                </>
+              ) : (
+                <>
+                  <p className="checkpoint-feedback-en">{CHECKPOINT_NEGATIVE}</p>
+                  <p className="checkpoint-feedback-ur">{CHECKPOINT_NEGATIVE_UR}</p>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
     )
@@ -391,8 +524,15 @@ export default function Reader() {
           setSupportLevel(bookId, supportLevel + 1)
           setSupport(supportLevel + 1)
           setLevelUpCelebration(true)
+          ;(async () => {
+            try {
+              await updateSupportLevel(supportLevel + 1)
+            } catch {
+              // silent fail
+            }
+          })()
         }
-        localStorage.setItem(QUIZ_DONE_KEY(bookId, chapter.id), '1')
+        localStorage.setItem(QUIZ_DONE_KEY(bookId, chapter.id), JSON.stringify({ done: true, at: Date.now() }))
       }
     }
 
@@ -425,6 +565,7 @@ export default function Reader() {
                   setPhase(PHASE_WORD_BANK_REVIEW)
                 } else {
                   setPhase(PHASE_READING)
+                  chapterCompletionTrackedRef.current = false
                   if (isLastChapter) {
                     setChapterIndex(0)
                     setLineIndex(0)

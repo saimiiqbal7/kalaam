@@ -1,0 +1,118 @@
+.register-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-title {
+  font-family: var(--font-english);
+  font-size: 32px;
+  color: #2e1a10;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.register-title-urdu {
+  font-weight: 400;
+}
+
+.register-subtitle {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.register-subtitle--second {
+  margin-bottom: 1.25rem;
+}
+
+.register-input {
+  height: 52px;
+  border: 1px solid #e0cfc4;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 16px;
+  background: #fffaf6;
+  color: #2e1a10;
+  width: 100%;
+  margin-bottom: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.register-input:focus {
+  border-color: #ffb08f;
+  outline: none;
+}
+
+.register-input--shake {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.register-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  background: var(--mahogany);
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.register-btn:disabled {
+  opacity: 0.75;
+}
+
+.register-error {
+  font-size: 12px;
+  color: #c62828;
+  align-self: flex-start;
+  margin: -4px 0 8px;
+}
+
+.register-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.register-toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--mahogany);
+  color: var(--cream);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  z-index: 60;
+  animation: register-toast 0.3s ease;
+}
+
+@keyframes register-toast {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

@@ -539,6 +539,10 @@
   gap: 0.5rem;
 }
 
+.quiz-options--locked {
+  pointer-events: none;
+}
+
 .quiz-option {
   text-align: left;
   padding: 0.75rem 1rem;
@@ -547,11 +551,81 @@
   background: var(--page-bg);
   color: var(--text-primary);
   font-size: 1rem;
+  border-left: 3px solid transparent;
 }
 
 .quiz-option:hover {
   background: var(--cream);
   border-color: var(--tan);
+}
+
+.quiz-option--correct {
+  background: #e6f4ea;
+  border-left-color: #2e7d32;
+  color: #1b5e20;
+}
+
+.quiz-option--wrong {
+  background: #fdf0f0;
+  border-left-color: #c62828;
+  color: #7f1d1d;
+}
+
+.checkpoint-feedback {
+  margin-top: 0.9rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
+}
+
+.checkpoint-feedback--correct {
+  color: #2e7d32;
+}
+
+.checkpoint-feedback--wrong {
+  color: #b8860b;
+}
+
+.checkpoint-feedback-en,
+.checkpoint-feedback-ur {
+  margin: 0;
+}
+
+.checkpoint-feedback-ur {
+  margin-top: 0.15rem;
+  font-family: var(--font-ui);
+  font-style: italic;
+}
+
+.checkpoint-summary {
+  margin: 1rem 0 1.25rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+}
+
+.checkpoint-summary--green {
+  background: #e6f4ea;
+  color: #1b5e20;
+}
+
+.checkpoint-summary--amber {
+  background: #fff4dd;
+  color: #8a5a00;
+}
+
+.checkpoint-summary--muted {
+  background: #f4efe9;
+  color: #7d4f3a;
+}
+
+.checkpoint-summary-en,
+.checkpoint-summary-ur {
+  margin: 0;
+}
+
+.checkpoint-summary-ur {
+  margin-top: 0.2rem;
+  font-style: italic;
 }
 
 .quiz-progress {

@@ -20,6 +20,7 @@
           "title": "Chapter 1: The Dream of Azaadi",
           "checkpoints": [
             {
+              "id": "ch1_cp1",
               "afterLine": 15,
               "questions": [
                 { "type": "comprehension", "question": "Why did the animals gather in the barn?", "questionUr": "Janwar godam mein kyun jama hue?", "options": ["To sleep", "To hold a secret meeting", "To eat", "To fight"], "optionsUr": ["Sone ke liye", "Khufia meeting karne ke liye", "Khane ke liye", "Larne ke liye"], "correct": 1 },
@@ -27,6 +28,7 @@
               ]
             },
             {
+              "id": "ch1_cp2",
               "afterLine": 33,
               "questions": [
                 { "type": "comprehension", "question": "What did Shah Mahad warn the animals never to do?", "questionUr": "Shah Mahad ne janwaron ko kya kabhi na karne ki hidayat di?", "options": ["Work hard", "Act like Naveed Bhai", "Eat grass", "Sleep in the barn"], "optionsUr": ["Mehnat karna", "Naveed Bhai jaisa banna", "Ghaas khana", "Godam mein sona"], "correct": 1 }
@@ -235,6 +237,7 @@
           ],
           "checkpoints": [
             {
+              "id": "ch2_cp1",
               "afterLine": 17,
               "questions": [
                 { "type": "comprehension", "question": "What did Saim's dogs do to Shah Mahad?", "questionUr": "Saim ke kutton ne Shah Mahad ke saath kya kiya?", "options": ["They played with him", "They chased him away", "They protected him", "They voted for him"], "optionsUr": ["Unhon ne uske saath khela", "Unhon ne usay bhaga diya", "Unhon ne uski hifazat ki", "Unhon ne uske liye vote diya"], "correct": 1 },
@@ -242,6 +245,7 @@
               ]
             },
             {
+              "id": "ch2_cp2",
               "afterLine": 35,
               "questions": [
                 { "type": "comprehension", "question": "What big lie did Hussain tell about the water wheel?", "questionUr": "Hussain ne water wheel ke bare mein kaunsa bara jhoot bola?", "options": ["That it was dangerous", "That it was actually Saim's idea from the start", "That Shah Mahad broke it", "That the animals voted against it"], "optionsUr": ["Yeh ke woh khatarnak hai", "Yeh ke woh shuru se hi Saim ka idea tha", "Yeh ke Shah Mahad ne isay toda", "Yeh ke janwaron ne is ke khilaf vote diya"], "correct": 1 }
@@ -398,12 +402,14 @@
           ],
           "checkpoints": [
             {
+              "id": "ch3_cp1",
               "afterLine": 19,
               "questions": [
                 { "type": "comprehension", "question": "How did Hussain change the rule about sleeping in a bed?", "questionUr": "Hussain ne bistar par sone wale asool ko kaise badla?", "options": ["He deleted it", "He added 'with sheets' so Saim could use a mattress", "He made it longer", "He painted it"], "optionsUr": ["Usne isay mita diya", "Usne 'with sheets' joda taake Saim mattress use kar sake", "Usne isay lamba kiya", "Usne isay paint kiya"], "correct": 1 }
               ]
             },
             {
+              "id": "ch3_cp2",
               "afterLine": 31,
               "questions": [
                 { "type": "comprehension", "question": "Where did Hussain really send Rameen Ramen?", "questionUr": "Hussain ne Rameen Ramen ko asal mein kahan bheja?", "options": ["To a nice hospital", "To a cruel butcher", "To the forest", "To the city"], "optionsUr": ["Achay hospital mein", "Ek zalim qasai ke paas", "Jangal mein", "Shehar mein"], "correct": 1 }
