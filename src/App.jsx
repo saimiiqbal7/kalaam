@@ -9,10 +9,7 @@ import { isRegistered, updateLastSeen } from './lib/userService'
 
 export default function App() {
 
-  console.log('Supabase URL:', import.meta.env.VITE_SUPABASE_URL);
-console.log('Supabase Key:', import.meta.env.VITE_SUPABASE_ANON_KEY);
-  const [registered, setRegistered] = useState(isRegistered())
-
+ 
   useEffect(() => {
     window.resetKalaam = () => {
       localStorage.removeItem('kalaam_user_id')
