@@ -1,0 +1,71 @@
+:root {
+  --tomato: #ff7f50;
+  --salmon: #ff9a6a;
+  --peach: #ffb08f;
+  --cream: #ffccaa;
+  --tan: #d68a4a;
+  --rust: #b24e3e;
+  --mahogany: #7d2f2a;
+  --page-bg: #fffaf6;
+  --text-primary: #2e1a10;
+  --text-dark: #2e1a10;
+  --text-mid: #7d4f3a;
+  --text-muted: #c4a898;
+  --text-muted-alt: #9e7060;
+  --bg-warm: #f5ede4;
+  --font-english: 'Lora', serif;
+  --font-ui: 'DM Sans', sans-serif;
+  --font-urdu: 'DM Sans', sans-serif;
+  --body-size: 18px;
+  --line-height: 1.9;
+  /* Mobile first breakpoints */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  font-size: var(--body-size);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  background: var(--page-bg);
+}
+
+/* Paper texture overlay (CSS-only) */
+.paper-texture {
+  background-color: var(--page-bg);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 200, 170, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(210, 138, 74, 0.04) 0%, transparent 40%);
+  position: relative;
+}
+
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+
+a {
+  color: var(--rust);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
