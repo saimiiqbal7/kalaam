@@ -70,6 +70,16 @@ export default function Reader() {
   const activeLineRef = useRef(null)
   const isMobile = useMediaQuery('(max-width: 767px)')
 
+  useEffect(() => {
+    window.resetOnboarding = () => {
+      localStorage.removeItem('kalaam_onboarding_done')
+      window.location.reload()
+    }
+    return () => {
+      if (window.resetOnboarding) delete window.resetOnboarding
+    }
+  }, [])
+
   const book = useMemo(() => booksData.books.find((b) => b.id === bookId), [bookId])
   const chapters = book?.chapters ?? []
   const chapter = chapters[chapterIndex]

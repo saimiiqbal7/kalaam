@@ -8,7 +8,7 @@
       "badge": "✦ Original Story",
       "coverColor": "#ffb08f",
       "description": "A farm. A dream. A betrayal. Read Kalaam's original Urdu-inspired story.",
-      "coverImage": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "coverImage": "/azaad farm.jpg",
       "previewLines": [
         { "en": "Shah Mahad stood on a high wooden box so everyone could see him clearly.", "ur": "Shah Mahad ek oonce lakri ke dabbe par khara tha taake sab usay saaf dekh sakein." },
         { "en": "'All animals are equal, and we must promise to keep it that way forever.'", "ur": "'Tamam janwar barabar hain, aur hamein is baat ko hamesha ke liye qaim rakhne ka wada karna hoga.'" },
@@ -29,21 +29,21 @@
             {
               "afterLine": 33,
               "questions": [
-                { "type": "comprehension", "question": "What did Shah Mahad warn the animals never to do?", "questionUr": "Shah Mahad ne janwarong ko kya kabhi na karne ki hidayat di?", "options": ["Work hard", "Act like Naveed Bhai", "Eat grass", "Sleep in the barn"], "optionsUr": ["Mehnat karna", "Naveed Bhai jaisa banna", "Ghaas khana", "Godam mein sona"], "correct": 1 }
+                { "type": "comprehension", "question": "What did Shah Mahad warn the animals never to do?", "questionUr": "Shah Mahad ne janwaron ko kya kabhi na karne ki hidayat di?", "options": ["Work hard", "Act like Naveed Bhai", "Eat grass", "Sleep in the barn"], "optionsUr": ["Mehnat karna", "Naveed Bhai jaisa banna", "Ghaas khana", "Godam mein sona"], "correct": 1 }
               ]
             }
           ],
           "lines": [
             { "en": "Once upon a time, there was a large and beautiful place called Gulistan Farm.", "ur": "Ek dafa ka zikr hai, Gulistan Farm naam ki ek bohat bari aur khoobsurat jagah thi." },
             { "en": "The owner of this farm was a cruel and lazy man named Naveed Bhai.", "ur": "Is farm ka maalik Naveed Bhai naam ka ek zalim aur sust aadmi tha." },
-            { "en": "Naveed Bhai never did any hard work himself, but he forced all the animals to work from morning until night.", "ur": "Naveed Bhai khud toh kabhi koi sakht kaam nahi karta tha, lekin janwarong se subah se raat tak kaam karwata tha." },
+            { "en": "Naveed Bhai never did any hard work himself, but he forced all the animals to work from morning until night.", "ur": "Naveed Bhai khud toh kabhi koi sakht kaam nahi karta tha, lekin janwaron se subah se raat tak kaam karwata tha." },
             { "en": "He took the hens' eggs, the cows' milk, and the horses' strength to make himself rich.", "ur": "Woh ameer banne ke liye murgion ke anday, gayon ka doodh, aur ghoron ki taqat chheen leta tha." },
-            { "en": "But he only gave the animals dry grass and dirty water to survive.", "ur": "Lekin woh janwarong ko zinda rehne ke liye sirf sookhi ghaas aur ganda pani deta tha." },
+            { "en": "But he only gave the animals dry grass and dirty water to survive.", "ur": "Lekin woh janwaron ko zinda rehne ke liye sirf sookhi ghaas aur ganda pani deta tha." },
             { "en": "The animals were always tired, hungry, and very sad.", "ur": "Janwar hamesha thake hue, bhooke aur bohat udaas rehte thay." },
             { "en": "Among them was Rameen Ramen, a very strong, gentle, and hardworking female horse.", "ur": "Un mein Rameen Ramen bhi thi, jo ek bohat mazboot, naram-mizaj aur mehnati ghori thi." },
-            { "en": "Rameen Ramen cared deeply about all the smaller animals and always tried to protect them.", "ur": "Rameen Ramen tamam chote janwarong ka bohat khayal rakhti thi aur hamesha unhein bachane ki koshish karti thi." },
+            { "en": "Rameen Ramen cared deeply about all the smaller animals and always tried to protect them.", "ur": "Rameen Ramen tamam chote janwaron ka bohat khayal rakhti thi aur hamesha unhein bachane ki koshish karti thi." },
             { "en": "One hot summer night, Naveed Bhai drank too much and fell asleep without locking the barn doors.", "ur": "Garmiyon ki ek raat, Naveed Bhai ne bohat zyada sharaab pee li aur godam ke darwaze lock kiye baghair hi so gaya." },
-            { "en": "This was the perfect chance for the animals to hold a secret meeting.", "ur": "Yeh janwarong ke liye ek khufia meeting karne ka behtareen mauqa tha." },
+            { "en": "This was the perfect chance for the animals to hold a secret meeting.", "ur": "Yeh janwaron ke liye ek khufia meeting karne ka behtareen mauqa tha." },
             { "en": "Word spread quickly that Shah Mahad wanted to speak to everyone.", "ur": "Yeh baat jaldi se phail gayi ke Shah Mahad sab se kuch baat karna chahta hai." },
             { "en": "Shah Mahad was a brave, smart, and handsome Markhor who lived on the farm.", "ur": "Shah Mahad ek bahadur, samajhdar aur khoobsurat Markhor tha jo farm par rehta tha." },
             { "en": "All the animals respected him because he always spoke the truth.", "ur": "Sab janwar uski izzat karte thay kyunkay woh hamesha sach bolta tha." },
@@ -60,7 +60,7 @@
             { "en": "'If we unite and stand together, Naveed Bhai cannot hurt us anymore.'", "ur": "'Agar hum ittehad karein aur ek saath khare hon, toh Naveed Bhai hamein mazeed nuqsan nahi pohancha sakta.'" },
             { "en": "Rameen Ramen nodded her head and neighed softly in agreement.", "ur": "Rameen Ramen ne haami bharte hue apna sar hilaya aur ahista se awaz nikali." },
             { "en": "'We must be brave,' she told the others gently. 'We must protect each other.'", "ur": "'Hamein bahadur banna hoga,' usne doosron se pyar se kaha. 'Hamein ek doosre ki hifazat karni hogi.'" },
-            { "en": "Most of the animals cheered quietly, their hearts filled with a new courage.", "ur": "Zyadatar janwarong ne khamoshi se khushi ka izhar kiya, unke dilon mein ek naya hausla bhar gaya tha." },
+            { "en": "Most of the animals cheered quietly, their hearts filled with a new courage.", "ur": "Zyadatar janwaron ne khamoshi se khushi ka izhar kiya, unke dilon mein ek naya hausla bhar gaya tha." },
             { "en": "But not everyone in the barn was cheering for the right reasons.", "ur": "Lekin godam mein maujood har koi achi niyat se khush nahi tha." },
             { "en": "In a dark corner, a large, powerful bull named Saim was watching silently.", "ur": "Ek andhere kone mein, Saim naam ka ek bara aur taqatwar bail khamoshi se sab dekh raha tha." },
             { "en": "Saim did not care about freedom for everyone; he only wanted power for himself.", "ur": "Saim ko sabki azaadi se koi farq nahi parta tha; woh sirf apne liye taqat chahta tha." },
@@ -71,10 +71,10 @@
             { "en": "'Remember,' Shah Mahad continued, 'when we get our Azaadi, we must never act like Naveed Bhai.'", "ur": "'Yaad rakhna,' Shah Mahad ne aage kaha, 'jab hamein hamari Azaadi mil jaye, toh hamein kabhi Naveed Bhai jaisa nahi banna.'" },
             { "en": "'We must never live in a house, sleep in a bed, or be cruel to our brothers and sisters.'", "ur": "'Hamein kabhi ghar mein nahi rehna, bistar par nahi sona, ya apne bhai behnon par zulm nahi karna.'" },
             { "en": "'All animals are equal, and we must promise to keep it that way forever.'", "ur": "'Tamam janwar barabar hain, aur hamein is baat ko hamesha ke liye qaim rakhne ka wada karna hoga.'" },
-            { "en": "The animals agreed and promised to remember his wise words.", "ur": "Janwarong ne is baat se ittefaq kiya aur uski akalmand baaton ko yaad rakhne ka wada kiya." },
+            { "en": "The animals agreed and promised to remember his wise words.", "ur": "janwaron ne is baat se ittefaq kiya aur uski akalmand baaton ko yaad rakhne ka wada kiya." },
             { "en": "Suddenly, they heard a loud noise from the farmhouse.", "ur": "Achanak, unhein farmhouse se ek zor dar awaz ayi." },
             { "en": "Naveed Bhai had woken up and was coming toward the barn with a heavy stick in his hand.", "ur": "Naveed Bhai jaag gaya tha aur hath mein ek bhari danda liye godam ki taraf aa raha tha." },
-            { "en": "He kicked the barn door open and started yelling at the animals to go to sleep.", "ur": "Usne godam ka darwaza laat maar kar khola aur janwarong par sone ke liye chillane laga." },
+            { "en": "He kicked the barn door open and started yelling at the animals to go to sleep.", "ur": "Usne godam ka darwaza laat maar kar khola aur janwaron par sone ke liye chillane laga." },
             { "en": "He raised his stick to hit Rameen Ramen, who was standing in the front.", "ur": "Usne Rameen Ramen ko marne ke liye apna danda uthaya, jo sab se aage khari thi." },
             { "en": "But Rameen Ramen did not back away this time; she stood tall and fearless.", "ur": "Lekin is baar Rameen Ramen peeche nahi hati; woh bina darey mazbooti se khari rahi." },
             { "en": "'Now is the time!' shouted Shah Mahad. 'For our Azaadi!'", "ur": "'Abhi sahi waqt hai!' Shah Mahad ne naara lagaya. 'Hamari Azaadi ke liye!'" },
@@ -82,14 +82,14 @@
             { "en": "Seeing their leader attack, all the other animals rushed forward together.", "ur": "Apne leader ko hamla karte dekh kar, baaki tamam janwar bhi ek saath aage barh gaye." },
             { "en": "Naveed Bhai was terrified by the angry crowd and dropped his stick in panic.", "ur": "Naveed Bhai is gusse wali bheer se darr gaya aur ghabrahat mein apna danda gira diya." },
             { "en": "He turned around and ran away from the farm as fast as his legs could carry him.", "ur": "Woh peeche mura aur jitni tezi se uski tangein bhag sakti thin, farm se bhag gaya." },
-            { "en": "The animals chased him all the way to the main road and locked the big iron gate behind him.", "ur": "Janwarong ne main road tak uska peecha kiya aur uske peeche lohe ka bara gate lock kar diya." },
+            { "en": "The animals chased him all the way to the main road and locked the big iron gate behind him.", "ur": "janwaron ne main road tak uska peecha kiya aur uske peeche lohe ka bara gate lock kar diya." },
             { "en": "The farm was finally theirs, and the dream of Azaadi had become a reality.", "ur": "Farm aakhir kaar unka tha, aur Azaadi ka khwab hakikat ban gaya tha." }
           ],
           "quiz": [
             {
               "type": "comprehension",
               "question": "Why did the animals have a secret meeting?",
-              "questionUr": "Janwarong ne khufia meeting kyun ki?",
+              "questionUr": "janwaron ne khufia meeting kyun ki?",
               "options": [
                 "To plan a party for Naveed Bhai",
                 "Because Naveed Bhai was asleep and they wanted Azaadi",
@@ -188,12 +188,12 @@
             { "en": "The most important rule was: 'All animals are equal.'", "ur": "Sab se ahem asool tha: 'Tamam janwar barabar hain.'" },
             { "en": "Shah Mahad also wanted to make life easier for everyone.", "ur": "Shah Mahad sab ki zindagi aasan bhi banana chahta tha." },
             { "en": "He drew plans on the ground to build a large water wheel near the river.", "ur": "Usne darya ke paas ek bara water wheel (pani ka pahiya) banane ke liye zameen par naqshay banaye." },
-            { "en": "He told the animals that the wheel would give them electricity.", "ur": "Usne janwarong ko bataya ke pahiya unhein bijli de ga." },
+            { "en": "He told the animals that the wheel would give them electricity.", "ur": "Usne janwaron ko bataya ke pahiya unhein bijli de ga." },
             { "en": "'With electricity, we will only have to work three days a week!' Shah Mahad announced happily.", "ur": "'Bijli aane ke baad, hamein hafte mein sirf teen din kaam karna paray ga!' Shah Mahad ne khushi se bataya." },
             { "en": "Rameen Ramen loved this idea and worked the hardest to gather stones for the wheel.", "ur": "Rameen Ramen ko yeh idea bohat pasand aya aur usne pahiye ke liye pathar ikathay karne mein sab se zyada mehnat ki." },
             { "en": "She would wake up early every morning and pull heavy carts of rocks.", "ur": "Woh roz subah jaldi uthti aur patharon se bhari bhari gariyan kheenchti thi." },
             { "en": "But Saim, the big bull, hated the water wheel plan.", "ur": "Lekin Saim bail ko water wheel ka plan bilkul pasand nahi tha." },
-            { "en": "He did not care about making life easy for the other animals.", "ur": "Usay doosre janwarong ki zindagi aasan banane ki koi fikar nahi thi." },
+            { "en": "He did not care about making life easy for the other animals.", "ur": "Usay doosre janwaron ki zindagi aasan banane ki koi fikar nahi thi." },
             { "en": "Saim secretly wanted all the power, and he had a wicked plan.", "ur": "Saim andar hi andar sari taqat chahta tha, aur uska ek shaitani plan tha." },
             { "en": "A few months ago, Saim had taken four wild puppies away from their mother.", "ur": "Kuch mahine pehle, Saim ne chaar jangli kutton ke bachon ko unki maa se door kar diya tha." },
             { "en": "He hid them in the roof of the barn and fed them extra meat.", "ur": "Usne unhein godam ki chhat mein chupa diya aur unhein zyada gosht khilaya." },
@@ -224,7 +224,7 @@
             { "en": "Rameen Ramen stamped her hoof. 'But Shah Mahad fought Naveed Bhai bravely!'", "ur": "Rameen Ramen ne apna paon zameen par mara. 'Lekin Shah Mahad toh Naveed Bhai se bahaduri se lara tha!'" },
             { "en": "Hussain laughed a fake laugh. 'Oh, Rameen, that was all a trick!'", "ur": "Hussain jhooti hansi hansa. 'Oh Rameen, woh toh sab ek dhoka tha!'" },
             { "en": "'Do you want Naveed Bhai to come back and hit us with sticks?' Hussain asked.", "ur": "'Kya tum chahti ho ke Naveed Bhai wapis aa jaye aur hamein dandon se mare?' Hussain ne pucha." },
-            { "en": "The animals shook their heads quickly. They were terrified of Naveed Bhai.", "ur": "Janwarong ne jaldi se apna sar na mein hilaya. Woh Naveed Bhai se bohat darte thay." },
+            { "en": "The animals shook their heads quickly. They were terrified of Naveed Bhai.", "ur": "janwaron ne jaldi se apna sar na mein hilaya. Woh Naveed Bhai se bohat darte thay." },
             { "en": "'No, we don't want Naveed Bhai back,' they whispered together.", "ur": "'Nahi, hum Naveed Bhai ki wapsi nahi chahte,' unhone ahista se ek saath kaha." },
             { "en": "'Then you must obey Saim,' Hussain said with a final nod.", "ur": "'Toh phir tumhein Saim ki baat manni hogi,' Hussain ne aakhri bar sar hilate hue kaha." },
             { "en": "Three days later, Saim announced that they would build the water wheel after all.", "ur": "Teen din baad, Saim ne elaan kiya ke woh aakhir kaar water wheel banayenge." },
@@ -244,7 +244,7 @@
             {
               "afterLine": 35,
               "questions": [
-                { "type": "comprehension", "question": "What big lie did Hussain tell about the water wheel?", "questionUr": "Hussain ne water wheel ke bare mein kaunsa bara jhoot bola?", "options": ["That it was dangerous", "That it was actually Saim's idea from the start", "That Shah Mahad broke it", "That the animals voted against it"], "optionsUr": ["Yeh ke woh khatarnak hai", "Yeh ke woh shuru se hi Saim ka idea tha", "Yeh ke Shah Mahad ne isay toda", "Yeh ke janwarong ne is ke khilaf vote diya"], "correct": 1 }
+                { "type": "comprehension", "question": "What big lie did Hussain tell about the water wheel?", "questionUr": "Hussain ne water wheel ke bare mein kaunsa bara jhoot bola?", "options": ["That it was dangerous", "That it was actually Saim's idea from the start", "That Shah Mahad broke it", "That the animals voted against it"], "optionsUr": ["Yeh ke woh khatarnak hai", "Yeh ke woh shuru se hi Saim ka idea tha", "Yeh ke Shah Mahad ne isay toda", "Yeh ke janwaron ne is ke khilaf vote diya"], "correct": 1 }
               ]
             }
           ],
@@ -306,7 +306,7 @@
             {
               "type": "comprehension",
               "question": "What big lie did Hussain tell the animals?",
-              "questionUr": "Hussain ne janwarong se kaunsa bara jhoot bola?",
+              "questionUr": "Hussain ne janwaron se kaunsa bara jhoot bola?",
               "options": [
                 "That Saim was leaving the farm",
                 "That Shah Mahad was a traitor working for Naveed Bhai",
@@ -346,7 +346,7 @@
           "title": "Chapter 3: The Broken Rules",
           "lines": [
             { "en": "Years passed quickly at Azaad Farm.", "ur": "Azaad Farm par saal tezi se guzar gaye." },
-            { "en": "The animals worked very hard to finish the water wheel.", "ur": "Janwarong ne water wheel mukammal karne ke liye bohat mehnat ki." },
+            { "en": "The animals worked very hard to finish the water wheel.", "ur": "janwaron ne water wheel mukammal karne ke liye bohat mehnat ki." },
             { "en": "But life did not get easier for them.", "ur": "Lekin unki zindagi aasan nahi hui." },
             { "en": "They were always hungry and always cold.", "ur": "Woh hamesha bhooke aur thande rehte thay." },
             { "en": "Rameen Ramen worked the hardest of all.", "ur": "Rameen Ramen ne sab se zyada mehnat ki." },
@@ -375,11 +375,11 @@
             { "en": "One evening, she collapsed on the ground while carrying a heavy stone.", "ur": "Ek shaam, woh ek bhari pathar uthate hue zameen par gir gayi." },
             { "en": "Saim promised to send her to a nice hospital in the city.", "ur": "Saim ne usay shehar ke ek achay hospital bhejney ka wada kiya." },
             { "en": "But Hussain secretly put her in a truck that went to a cruel butcher.", "ur": "Lekin Hussain ne khufia taur par usay ek aisi truck mein daal diya jo ek zalim qasai ki thi." },
-            { "en": "When the animals asked where she was, Hussain cried fake tears.", "ur": "Jab janwarong ne pucha ke woh kahan hai, toh Hussain ne jhoote ansoo bahaye." },
+            { "en": "When the animals asked where she was, Hussain cried fake tears.", "ur": "Jab janwaron ne pucha ke woh kahan hai, toh Hussain ne jhoote ansoo bahaye." },
             { "en": "'She died peacefully in the hospital,' Hussain lied again.", "ur": "'Woh hospital mein sukoon se mar gayi,' Hussain ne dobara jhoot bola." },
             { "en": "Without Rameen Ramen, the farm felt completely empty and sad.", "ur": "Rameen Ramen ke baghair, farm bilkul khali aur udaas lagne laga." },
             { "en": "Years later, the ultimate shock happened.", "ur": "Saalon baad, sab se bara jhatka laga." },
-            { "en": "The animals heard a loud gasp from the main yard.", "ur": "Janwarong ne main sahan se ek zor dar haanpne ki awaz suni." },
+            { "en": "The animals heard a loud gasp from the main yard.", "ur": "janwaron ne main sahan se ek zor dar haanpne ki awaz suni." },
             { "en": "They ran out and saw Saim walking out of the farmhouse.", "ur": "Woh bhag kar bahar gaye aur dekha ke Saim farmhouse se bahar aa raha tha." },
             { "en": "Saim was not walking on four legs anymore.", "ur": "Saim ab chaar tangon par nahi chal raha tha." },
             { "en": "He was walking upright on two legs, just like a human!", "ur": "Woh do tangon par seedha chal raha tha, bilkul ek insaan ki tarah!" },
@@ -393,7 +393,7 @@
             { "en": "The poor animals crept up to the farmhouse window to look inside.", "ur": "Bechare janwar khirki ke paas dabe paon gaye taake andar dekh sakein." },
             { "en": "They saw Saim playing cards and laughing with the humans.", "ur": "Unhone dekha ke Saim insaanon ke saath taash khel raha hai aur hans raha hai." },
             { "en": "He was drinking from Naveed Bhai's cups and sitting in Naveed Bhai's chair.", "ur": "Woh Naveed Bhai ke cup mein pee raha tha aur Naveed Bhai ki kursi par baitha tha." },
-            { "en": "The animals looked from Saim to the humans, and from the humans to Saim.", "ur": "Janwarong ne Saim se insaanon ko, aur insaanon se Saim ko dekha." },
+            { "en": "The animals looked from Saim to the humans, and from the humans to Saim.", "ur": "janwaron ne Saim se insaanon ko, aur insaanon se Saim ko dekha." },
             { "en": "But it was too late; they could not tell which was the animal and which was the human.", "ur": "Lekin ab bohat der ho chuki thi; woh pehchan nahi paa rahe thay ke kaun janwar hai aur kaun insaan." }
           ],
           "checkpoints": [
